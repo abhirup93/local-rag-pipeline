@@ -1,0 +1,16 @@
+[project]
+name = "local-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "chromadb>=1.5.7",
+    "fpdf2>=2.8.7",
+    "google-genai>=1.72.0",
+    "huggingface-hub>=1.10.1",
+    "ipywidgets>=8.1.8",
+    "pypdf>=6.10.0",
+    "python-dotenv>=1.2.2",
+    "rich>=15.0.0",
+]
