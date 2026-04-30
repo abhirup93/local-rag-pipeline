@@ -19,7 +19,8 @@ A collection of local-first RAG (Retrieval-Augmented Generation) pipelines for P
 | `local_rag.ipynb` | Gemini `gemini-embedding-001` | ChromaDB (local) | Primary implementation — full CDC pipeline |
 | `local_rag_postgres.ipynb` | Gemini | PostgreSQL pgvector | pgvector HNSW indexing, same CDC pipeline |
 | `local_rag_sqlserver.ipynb` | Gemini | SQL Server 2025 `VECTOR(768)` | DiskANN cosine indexing, SQL-backed conversation memory |
-| `voyage_embeddings.ipynb` | Voyage AI (`voyage-4-large`) | ChromaDB | Explores Voyage embedding models |
+| `voyage_embeddings.ipynb` | Voyage AI (`voyage-4-large`) | ChromaDB | Text embeddings with Voyage |
+| `voyage_image_embeddings.ipynb` | Voyage AI (`voyage-multimodal-3`) | in-memory | Image embeddings, text→image retrieval, image+caption fusion |
 | `pinecone_vector_search_sample.ipynb` | sentence-transformers | Pinecone serverless | Basic Pinecone walkthrough |
 | `pinecone_vector_search_voyage.ipynb` | Voyage AI | Pinecone serverless | Matryoshka dims, quantization options |
 | `mongodb_voyage_embeddings.ipynb` | Voyage AI | MongoDB Atlas | HNSW vector search, similarity metric comparison |

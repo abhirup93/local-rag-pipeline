@@ -21,3 +21,6 @@ build/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Downloaded sample images (runtime, re-fetched on demand)
+sample_images/

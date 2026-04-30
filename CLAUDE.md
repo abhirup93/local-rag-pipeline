@@ -55,7 +55,8 @@ PDF → extract_text_from_pdf() → chunk_text() → embed_documents_batch()
 | `local_rag.ipynb` | Gemini `gemini-embedding-001` | ChromaDB (local) | Primary — full CDC pipeline |
 | `local_rag_postgres.ipynb` | Gemini | PostgreSQL pgvector | pgvector HNSW indexing; requires local PostgreSQL |
 | `local_rag_sqlserver.ipynb` | Gemini | SQL Server 2025 `VECTOR(768)` | DiskANN cosine indexing, SQL-backed conversation memory; requires SQL Server 2025 |
-| `voyage_embeddings.ipynb` | Voyage AI `voyage-4-large` (1024-dim) | ChromaDB | Explores Voyage embedding models |
+| `voyage_embeddings.ipynb` | Voyage AI `voyage-4-large` (1024-dim) | ChromaDB | Text embeddings with Voyage |
+| `voyage_image_embeddings.ipynb` | Voyage AI `voyage-multimodal-3` (1024-dim) | in-memory | Image embeddings, text→image retrieval, image+caption fusion |
 | `pinecone_vector_search_sample.ipynb` | sentence-transformers | Pinecone serverless | Basic Pinecone walkthrough |
 | `pinecone_vector_search_voyage.ipynb` | Voyage AI | Pinecone serverless | Matryoshka dims, quantization options |
 | `mongodb_voyage_embeddings.ipynb` | Voyage AI | MongoDB Atlas | HNSW vector search, similarity metric comparison |

@@ -66,3 +66,4 @@
 - [x] GitHub Actions: Claude Code Review + PR Assistant workflows
 - [x] CLAUDE.md with full architecture documentation
 - [x] README.md updated to cover all notebooks and API key requirements
+- [x] Image embedding notebook (`voyage_image_embeddings.ipynb`) — `voyage-multimodal-3`, text→image retrieval, similarity matrix, image+caption fusion
