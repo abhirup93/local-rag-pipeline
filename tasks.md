@@ -33,9 +33,11 @@
 
 ## Alternative Backends
 
-- [ ] Unify the four notebooks (Voyage, Pinecone ×2, MongoDB) around a shared interface so backends are swappable
-- [ ] Add `voyage_embeddings.ipynb` CDC support (currently only `local_rag.ipynb` has it)
+- [ ] Unify all backend notebooks (Voyage, Pinecone ×2, MongoDB, PostgreSQL, SQL Server) around a shared interface so backends are swappable
+- [ ] Add CDC support to `voyage_embeddings.ipynb` (currently only `local_rag.ipynb` and `local_rag_sqlserver.ipynb` have it)
+- [ ] Add CDC support to `local_rag_postgres.ipynb`
 - [ ] Test MongoDB Atlas vector search on a fresh Atlas cluster and document required index config
+- [ ] Benchmark ChromaDB vs pgvector vs SQL Server VECTOR on the same PDF corpus — latency and recall
 
 ## Observability & Quality
 
@@ -59,5 +61,8 @@
 - [x] Conversation memory with session checkpointing to `memory_checkpoints/`
 - [x] Recency-weighted retrieval via exponential decay
 - [x] Alternative backends: Voyage AI, Pinecone (×2), MongoDB Atlas
+- [x] PostgreSQL pgvector backend (`local_rag_postgres.ipynb`) — pgvector HNSW indexing
+- [x] SQL Server 2025 backend (`local_rag_sqlserver.ipynb`) — native `VECTOR(768)` type, DiskANN indexing, SQL-backed conversation memory
 - [x] GitHub Actions: Claude Code Review + PR Assistant workflows
 - [x] CLAUDE.md with full architecture documentation
+- [x] README.md updated to cover all notebooks and API key requirements
