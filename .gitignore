@@ -1,5 +1,6 @@
 # Environment & secrets
 .env
+# .env.example is intentionally NOT ignored — commit it as a template
 
 # Runtime artifacts
 chroma_db/
@@ -9,6 +10,13 @@ chunk_registry.json
 
 # PDF test versions
 pdfs/versions/
+
+# Voyage image dataset directories (large, downloaded at runtime)
+voyage_caltech101_db_poc/raw_data/
+voyage_caltech101_db_poc/selected_images/
+
+# Downloaded sample images (runtime, re-fetched on demand)
+sample_images/
 
 # Python
 __pycache__/
@@ -22,5 +30,6 @@ build/
 # Jupyter
 .ipynb_checkpoints/
 
-# Downloaded sample images (runtime, re-fetched on demand)
-sample_images/
+# Local IDE / editor config
+settings.local.json
+statusline-command.sh

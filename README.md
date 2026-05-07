@@ -21,9 +21,13 @@ A collection of local-first RAG (Retrieval-Augmented Generation) pipelines for P
 | `local_rag_sqlserver.ipynb` | Gemini | SQL Server 2025 `VECTOR(768)` | DiskANN cosine indexing, SQL-backed conversation memory |
 | `voyage_embeddings.ipynb` | Voyage AI (`voyage-4-large`) | ChromaDB | Text embeddings with Voyage |
 | `voyage_image_embeddings.ipynb` | Voyage AI (`voyage-multimodal-3`) | in-memory | Image embeddings, text→image retrieval, image+caption fusion |
+| `voyage_image_clustering.ipynb` | Voyage AI (`voyage-multimodal-3`) | in-memory | PCA + K-Means clustering on image embeddings |
+| `voyage_multimodal_pca_kmeans_caltech101_poc.ipynb` | Voyage AI | `voyage_caltech101_db_poc/` | Caltech-101 multimodal POC — PCA & K-Means |
+| `voyage_multimodal_mongodb_pca_kmeans_poc.ipynb` | Voyage AI | MongoDB Atlas | Multimodal embeddings + PCA/K-Means stored in Atlas |
 | `pinecone_vector_search_sample.ipynb` | sentence-transformers | Pinecone serverless | Basic Pinecone walkthrough |
 | `pinecone_vector_search_voyage.ipynb` | Voyage AI | Pinecone serverless | Matryoshka dims, quantization options |
 | `mongodb_voyage_embeddings.ipynb` | Voyage AI | MongoDB Atlas | HNSW vector search, similarity metric comparison |
+| `event_driven_webhooks_using_gemini_api.ipynb` | Gemini | — | Event-driven webhook patterns with the Gemini API |
 
 ## Setup
 
@@ -33,8 +37,7 @@ Requires Python 3.11 and [`uv`](https://github.com/astral-sh/uv).
 uv venv
 .venv\Scripts\activate   # Windows
 
-uv sync
-uv add google-genai pypdf chromadb rich python-dotenv huggingface_hub fpdf2
+uv sync   # installs all dependencies declared in pyproject.toml
 ```
 
 ## Configuration
@@ -42,9 +45,20 @@ uv add google-genai pypdf chromadb rich python-dotenv huggingface_hub fpdf2
 Create a `.env` file in the project root with the API keys for the backends you intend to use:
 
 ```env
-# Required for primary notebook
+# Required for primary notebook (Gemini embeddings)
 GEMINI_API_KEY=...
+
+# LLM inference via HuggingFace / Groq
 HF_API_KEY=...
+
+# OpenAI (if used as LLM backend)
+OPENAI_API_KEY=...
+
+# Anthropic Claude (if used as LLM backend)
+CLAUDE_API_KEY=...
+
+# PostgreSQL backend (local_rag_postgres.ipynb)
+PG_PASSWORD=...   # defaults to "postgres" if unset
 
 # Voyage AI notebooks
 VOYAGEAI_API_KEY=...
@@ -73,3 +87,6 @@ The following are generated at runtime and gitignored:
 - `chroma_db/` — ChromaDB SQLite backend
 - `memory_checkpoints/` — timestamped conversation session files
 - `staleness_registry.json` / `chunk_registry.json` — CDC state
+- `pdfs/versions/` — versioned PDFs used for CDC testing
+- `voyage_caltech101_db_poc/raw_data/` & `selected_images/` — Caltech-101 images downloaded at runtime
+- `sample_images/` — sample images re-fetched on demand
